@@ -497,7 +497,7 @@ footer p{font-size:.85rem;opacity:.6;}
         <div class="order-total-row"><span>Total Amount</span><span id="orderGrandTotal">PKR 0</span></div>
         <div style="margin-top:1rem;background:var(--sage-pale);border-radius:12px;padding:1rem;font-size:.85rem;color:var(--text-soft);line-height:1.7;">
           📦 <strong>Delivery:</strong> 4–5 business days<br>
-          🚚 <strong>Shipping:</strong> PKR 150 (Free above PKR 2000)<br>
+          🚚 <strong>Shipping:</strong> PKR 250 (Free above PKR 2000)<br>
           🔄 <strong>Returns:</strong> Within 3 days of delivery
         </div>
       </div>
@@ -595,11 +595,28 @@ let cart = [];
 let selectedPayment = '';
 
 /* ═══ PAGE ROUTING ═══ */
-function showPage(id){
+function showPage(id,pushState=true){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const p=document.getElementById('page-'+id);
   if(p){p.classList.add('active');window.scrollTo(0,0);}
+  try{if(pushState) history.pushState({page:id},'',window.location.pathname+'#'+id);}catch(e){}
 }
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate',function(e){
+  if(e.state&&e.state.page){
+    showPage(e.state.page,false);
+  } else {
+    showPage('home',false);
+  }
+});
+
+// Set initial history state
+window.addEventListener('DOMContentLoaded',function(){
+  const hash=window.location.hash.replace('#','');
+  if(hash){showPage(hash,true);}
+  else{try{history.replaceState({page:'home'},'',window.location.pathname);}catch(e){}}
+});
 
 function setTab(tab){
   document.querySelectorAll('.earing-section').forEach(s=>s.classList.remove('active'));
@@ -694,7 +711,7 @@ function closeCart(){
 function goToCheckout(){
   closeCart();
   const total=cart.reduce((s,i)=>s+i.priceNum*i.qty,0);
-  const shipping=total>=2000?0:150;const grand=total+shipping;
+  const shipping=total>=2000?0:250;const grand=total+shipping;
   document.getElementById('orderItemsList').innerHTML=cart.map(item=>`
     <div class="order-item-row">
       <div><div class="order-item-name">${item.name}</div><div class="order-item-qty">Qty: ${item.qty}</div></div>
@@ -702,7 +719,7 @@ function goToCheckout(){
     </div>`).join('')+`
     <div class="order-item-row">
       <div class="order-item-name" style="color:var(--text-soft)">Shipping</div>
-      <div class="order-item-price" style="color:var(--text-soft)">${shipping===0?'FREE':'PKR 150'}</div>
+      <div class="order-item-price" style="color:var(--text-soft)">${shipping===0?'FREE':'PKR 250'}</div>
     </div>`;
   document.getElementById('orderGrandTotal').textContent='PKR '+grand.toLocaleString();
   document.getElementById('orderSuccess').style.display='none';
@@ -741,17 +758,26 @@ async function placeOrder(){
   if(!selectedPayment){showToast('Please select a payment method!');return;}
   if(cart.length===0){showToast('Cart is empty!');return;}
   const btn=document.getElementById('placeOrderBtn');
-  btn.disabled=true;btn.textContent='Placing order...';
+  btn.disabled=true;btn.textContent='⏳ Placing order...';
   const total=cart.reduce((s,i)=>s+i.priceNum*i.qty,0);
-  const shipping=total>=2000?0:150;const grand=total+shipping;
+  const shipping=total>=2000?0:250;const grand=total+shipping;
   const localId='ORD-'+Date.now();
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),10000);
   try{
-    const res=await fetch(`${API_URL}/orders`,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,phone,email,address,city,notes,paymentMethod:selectedPayment,cartItems:cart,totalAmount:grand})});
+    const res=await fetch(`${API_URL}/orders`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,phone,email,address,city,notes,paymentMethod:selectedPayment,cartItems:cart,totalAmount:grand}),
+      signal:controller.signal
+    });
+    clearTimeout(timer);
     const data=await res.json();
     showSuccess(data.orderId||localId,selectedPayment,grand);
   }catch(e){
+    clearTimeout(timer);
     showSuccess(localId,selectedPayment,grand);
+  }finally{
+    btn.disabled=false;btn.textContent='✅ Place Order Now';
   }
 }
 
