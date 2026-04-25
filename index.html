@@ -515,7 +515,7 @@ footer p{font-size:.85rem;opacity:.6;}
           <label>Payment Method *</label>
           <div class="pay-methods">
             <div class="pay-option" onclick="selectPay(this,'easypaisa')">
-              <input type="radio" name="pay"> <label>📱 EasyPaisa / JazzCash</label>
+              <input type="radio" name="pay"> <label>📱  JazzCash</label>
             </div>
           </div>
           <div class="pay-details-box" id="box-easypaisa">
@@ -528,7 +528,7 @@ footer p{font-size:.85rem;opacity:.6;}
               <div class="pay-detail-row">
                 <div class="pay-detail-left"><div class="pay-detail-label">Account Name</div><div class="pay-detail-value">Zahida bibi</div></div>
               </div>
-              <div class="pay-notice">💡 Send the <strong>exact order amount</strong> to the number above via EasyPaisa or JazzCash.<br>When we call you on WhatsApp, give your <strong>Order ID</strong> for verification. Advance payment only.</div>
+              <div class="pay-notice">💡 Send the <strong>exact order amount</strong> to the number above via  JazzCash.<br>When we call you on WhatsApp, give your <strong>Order ID</strong> for verification. Advance payment only.</div>
             </div>
           </div>
         </div>
@@ -786,7 +786,7 @@ function showSuccess(orderId,payMethod,grand){
   document.getElementById('orderSuccess').style.display='block';
   document.getElementById('displayOrderId').textContent=orderId;
   const reminders={
-    easypaisa:`📱 <strong>Payment Reminder:</strong> Please send <strong>PKR ${grand.toLocaleString()}</strong> to our EasyPaisa/JazzCash number: <strong>03235963246</strong> (Zahida bibi).<br>When we contact you on WhatsApp, share your Order ID <strong>${orderId}</strong> for verification.`
+    easypaisa:`📱 <strong>Payment Reminder:</strong> Please send <strong>PKR ${grand.toLocaleString()}</strong> to our JazzCash number: <strong>03235963246</strong> (Zahida bibi).<br>When we contact you on WhatsApp, share your Order ID <strong>${orderId}</strong> for verification.`
   };
   document.getElementById('successPayReminder').innerHTML=reminders[payMethod]||'';
   window.scrollTo(0,0);cart=[];updateCartUI();
