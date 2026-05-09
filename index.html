@@ -210,15 +210,11 @@ footer p{font-size:.85rem;opacity:.6;}
 .order-success>p{color:var(--text-soft);font-size:1rem;line-height:1.8;max-width:480px;margin:0 auto .8rem;}
 .toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--brown);color:#fff;padding:.75rem 1.5rem;border-radius:30px;font-size:.88rem;font-weight:500;z-index:2000;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
-/* ── QR & WhatsApp Payment ── */
 .qr-pay-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1rem .5rem;}
 .qr-img{width:170px;height:170px;border-radius:12px;border:3px solid var(--sage-light);object-fit:contain;background:#fff;box-shadow:0 4px 16px rgba(90,74,58,.12);}
 .wa-pay-btn{display:inline-flex;align-items:center;gap:.6rem;background:#25D366;color:#fff;border:none;border-radius:30px;padding:.75rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;}
 .wa-pay-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.45);}
 .qr-label{font-size:.75rem;color:var(--text-soft);text-align:center;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem;}
-
-/* ── Extra Responsive Fixes ── */
 @media(max-width:640px){
   .hero{padding:2.5rem 1.2rem;gap:2rem;}
   .hero h1{font-size:2.2rem;}
@@ -286,7 +282,6 @@ footer p{font-size:.85rem;opacity:.6;}
       <a onclick="showPage('headbands')">👑 Headbands</a>
     </div></li>
     <li><a onclick="showPage('gloves')">🧤 Gloves</a></li>
-    <li><a onclick="showPage('bracelets')">📿 Bracelets</a></li>
     <li><a onclick="showPage('keychains')">🔑 Keychains</a></li>
     <li><span>Earrings ▾</span><div class="dropdown">
       <a onclick="showPage('earrings');setTab('all')">💎 All Earrings</a>
@@ -300,6 +295,7 @@ footer p{font-size:.85rem;opacity:.6;}
       <a onclick="showPage('bookmarks')">📖 Bookmarks</a>
       <a onclick="showPage('bookcovers')">📚 Book Covers</a>
     </div></li>
+    <li><a onclick="showPage('others')">🎁 Others</a></li>
     <li><a onclick="showPage('contact')">Contact</a></li>
     <li><a onclick="showPage('about')">About</a></li>
   </ul>
@@ -325,7 +321,6 @@ footer p{font-size:.85rem;opacity:.6;}
     </div>
   </div>
   <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('gloves')">🧤 Gloves</div></div>
-  <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('bracelets')">📿 Bracelets</div></div>
   <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('keychains')">🔑 Keychains</div></div>
   <div class="m-nav-item" id="m-earrings">
     <div class="m-nav-link" onclick="toggleMSub('m-earrings')">💎 Earrings <span class="arrow">▾</span></div>
@@ -345,6 +340,7 @@ footer p{font-size:.85rem;opacity:.6;}
       <div class="m-sub-link" onclick="mobileGo('bookcovers')">📚 Book Covers</div>
     </div>
   </div>
+  <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('others')">🎁 Others</div></div>
   <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('contact')">💌 Contact</div></div>
   <div class="m-nav-item"><div class="m-nav-link" onclick="mobileGo('about')">🌿 About</div></div>
 </div>
@@ -386,20 +382,20 @@ footer p{font-size:.85rem;opacity:.6;}
     <div class="cat-pill" onclick="showPage('scrunchies')">🌸 Scrunchies</div>
     <div class="cat-pill" onclick="showPage('headbands')">👑 Headbands</div>
     <div class="cat-pill" onclick="showPage('gloves')">🧤 Gloves</div>
-    <div class="cat-pill" onclick="showPage('bracelets')">📿 Bracelets</div>
     <div class="cat-pill" onclick="showPage('keychains')">🔑 Keychains</div>
     <div class="cat-pill" onclick="showPage('gajray')">🌺 Gajray</div>
     <div class="cat-pill" onclick="showPage('deals')">🏷️ Deals</div>
+    <div class="cat-pill" onclick="showPage('others')">🎁 Others</div>
   </div></div></div>
   <div class="section">
     <div class="sec-head"><h2>Featured Picks</h2><div class="divider"></div><p>Our customers' most-loved handmade pieces</p></div>
     <div class="masonry">
-      <div class="m-card" onclick="showPage('bookmarks')"><img src="images/bookmark.webp" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">⭐ Best Seller</div><h3>Book Mark</h3><p>Make your book special with crochet bookmark.</p><span class="m-price">PKR 200</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Book Mark','PKR 200',200,'images/bookmark.webp')">🛒 Add to Cart</button></div></div>
-      <div class="m-card" onclick="showPage('earrings');setTab('dangles')"><img src="images/bow earings.png" style="height:220px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Trending 🎀</div><h3>Crochet Bow Dangles</h3><p>Hot pink crocheted bow dangle earrings.</p><span class="m-price">PKR 200</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Crochet Bow Dangles','PKR 200',200,'images/bow earings.png')">🛒 Add to Cart</button></div></div>
-      <div class="m-card" onclick="showPage('gajray')"><img src="images/gajray 1.webp" style="height:260px;"><div class="m-card-body"><div class="m-tag m-tag-pink">❤️ Gift Idea</div><h3>Daisy Gajray</h3><p>Adorable crocheted Gajray.</p><span class="m-price">PKR 1000</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Daisy Gajray','PKR 1000',1000,'images/gajray 1.webp')">🛒 Add to Cart</button></div></div>
-      <div class="m-card" onclick="showPage('earrings');setTab('studs')"><img src="images/flower stud.png" style="height:240px;"><div class="m-card-body"><div class="m-tag m-tag-pink">New</div><h3>Pink Flower Studs</h3><p>Pink crochet flower with pearl.</p><span class="m-price">PKR 300</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Pink Flower Studs','PKR 300',300,'images/flower stud.png')">🛒 Add to Cart</button></div></div>
-      <div class="m-card" onclick="showPage('scrunchies')"><img src="images/scrunchiess.webp" style="height:240px;"><div class="m-card-body"><div class="m-tag">Full Collection</div><h3>Scrunchie Collection</h3><p>Fluffy Crochet Scrunchies in five shades.</p><span class="m-price">From PKR 200</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Scrunchie Collection','PKR 1000',1000,'images/scrunchiess.webp')">🛒 Add to Cart</button></div></div>
-      <div class="m-card" onclick="showPage('bookmarks')"><img src="images/bookmarkset.webp" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">⭐ Best Seller</div><h3>Book Mark Set</h3><p>Enjoy your books with crochet bookmark.</p><span class="m-price">PKR 200</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Book Mark Set','PKR 200',200,'images/bookmarkset.webp')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('others')"><img src="images/bottle cover bow.png" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">⭐ Best Seller</div><h3>Bottle Cover</h3><p>Make your bottle look special with a crochet cover.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Crochet Bottle Cover','PKR 500',500,'images/bottle cover bow.png')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('others')"><img src="images/feeder cover watermelon.png" style="height:220px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Trending 🎀</div><h3>Crochet Feeder Cover</h3><p>Summery watermelon themed feeder cover. Great baby gift!</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Crochet Feeder Cover','PKR 600',600,'images/feeder cover watermelon.png')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('gajray')"><img src="images/gajray 1.webp" style="height:260px;"><div class="m-card-body"><div class="m-tag m-tag-pink">❤️ Gift Idea</div><h3>Daisy Gajray</h3><p>Adorable crocheted Gajray for brides and celebrations.</p><span class="m-price">PKR 1400</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Daisy Gajray','PKR 1400',1400,'images/gajray 1.webp')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('earrings');setTab('studs')"><img src="images/flower stud.png" style="height:240px;"><div class="m-card-body"><div class="m-tag m-tag-pink">New</div><h3>Pink Flower Studs</h3><p>Pink crochet flower with pearl centre.</p><span class="m-price">PKR 300</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Pink Flower Studs','PKR 300',300,'images/flower stud.png')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('scrunchies')"><img src="images/scrunchiess.webp" style="height:240px;"><div class="m-card-body"><div class="m-tag">Full Collection</div><h3>Scrunchie Collection</h3><p>Fluffy Crochet Scrunchies in five beautiful shades.</p><span class="m-price">From PKR 200</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Scrunchie Collection','PKR 1000',1000,'images/scrunchiess.webp')">🛒 Add to Cart</button></div></div>
+      <div class="m-card" onclick="showPage('bookmarks')"><img src="images/bookmarkset.webp" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">⭐ Best Seller</div><h3>Book Mark Set</h3><p>Enjoy your books with a beautiful crochet bookmark.</p><span class="m-price">PKR 200 per piece</span><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('Book Mark Set','PKR 200',200,'images/bookmarkset.webp')">🛒 Add to Cart</button></div></div>
     </div>
   </div>
   <footer><div class="f-logo">Crochet Craft 🧶</div><p>Handcrafted with ❤️ in Pakistan &nbsp;|&nbsp; © 2026 All rights reserved.</p></footer>
@@ -445,25 +441,68 @@ footer p{font-size:.85rem;opacity:.6;}
 <div id="page-ribbons" class="page"><div class="section"><div class="sec-head"><h2>🎀 Ribbons</h2><div class="divider"></div><p>Soft crochet bow ribbons</p></div><div class="masonry"><div class="m-card"><img src="images/Ribons.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">Coquette</div><h3>Classic Ribbon</h3><p>Wide crocheted bow.</p><span class="m-price">PKR 50</span><button class="add-cart-btn" onclick="addToCart('Classic Ribbon','PKR 50',50,'images/Ribons.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/Ribons1.png" style="height:220px;"><div class="m-card-body"><h3>Delicate Ribbon Bow</h3><p>Mini ribbon bow.</p><span class="m-price">PKR 70</span><button class="add-cart-btn" onclick="addToCart('Delicate Ribbon Bow','PKR 70',70,'images/Ribons1.png')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
 <!-- BANDANA -->
-<div id="page-bandana" class="page"><div class="section"><div class="sec-head"><h2>🧣 Bandana</h2><div class="divider"></div><p>Boho crochet bandanas</p></div><div class="masonry"><div class="m-card"><img src="images/bandana 1.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">Boho</div><h3>Crochet Head Bandana</h3><p>Handmade boho head scarf.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Crochet Head Bandana','PKR 500',500,'images/bandana 1.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/bandana 2.webp" style="height:240px;"><div class="m-card-body"><h3>Head Bandana</h3><p>Crochet bandana.</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Head Bandana','PKR 600',600,'images/bandana 2.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
+<div id="page-bandana" class="page"><div class="section"><div class="sec-head"><h2>🧣 Bandana</h2><div class="divider"></div><p>Boho crochet bandanas</p></div><div class="masonry"><div class="m-card"><img src="images/bandana 1.png" style="height:270px;"><div class="m-card-body"><div class="m-tag">Boho</div><h3>Crochet Head Bandana</h3><p>Handmade boho head scarf.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Crochet Head Bandana','PKR 500',500,'images/bandana 1.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/bandana 2.webp" style="height:240px;"><div class="m-card-body"><h3>Head Bandana</h3><p>Crochet bandana.</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Head Bandana','PKR 600',600,'images/bandana 2.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
 <!-- PARANDA -->
 <div id="page-paranda" class="page"><div class="section"><div class="sec-head"><h2>💫 Paranda</h2><div class="divider"></div><p>Traditional crochet paranda</p></div><div class="masonry"><div class="m-card"><img src="images/rose paranda.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">Festive</div><h3>Mehndi Paranda</h3><p>Multicolour paranda.</p><span class="m-price">PKR 450</span><button class="add-cart-btn" onclick="addToCart('Mehndi Paranda Rose','PKR 450',450,'images/rose paranda.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/green paranda.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">Festive</div><h3>Green Mehndi Paranda</h3><p>Multicolour paranda.</p><span class="m-price">PKR 450</span><button class="add-cart-btn" onclick="addToCart('Mehndi Paranda Green','PKR 450',450,'images/green paranda.png')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
-<!-- HEADBANDS -->
-<div id="page-headbands" class="page"><div class="section"><div class="sec-head"><h2>👑 Headbands</h2><div class="divider"></div><p>Cozy crochet headbands</p></div><div class="masonry"><div class="m-card"><img src="images/headband.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">⭐ Top Pick</div><h3>Boho Crochet Headband</h3><p>Wide boho headband in sage green.</p><span class="m-price">PKR 420</span><button class="add-cart-btn" onclick="addToCart('Boho Crochet Headband','PKR 420',420,'images/headband.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/headband1.png" style="height:240px;"><div class="m-card-body"><h3>Twisted Ear Warmer</h3><p>Chunky twisted crochet headband.</p><span class="m-price">PKR 380</span><button class="add-cart-btn" onclick="addToCart('Twisted Ear Warmer','PKR 380',380,'images/headband1.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/headband2.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">New</div><h3>Flower Crown Band</h3><p>Crocheted flower crown headband.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Flower Crown Band','PKR 500',500,'images/headband2.png')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
+<!-- ═══════════════════════════════════════ -->
+<!-- HEADBANDS —         -->
+<!-- ═══════════════════════════════════════ -->
+<div id="page-headbands" class="page"><div class="section">
+  <div class="sec-head"><h2>👑 Headbands</h2><div class="divider"></div><p>Cozy crochet headbands for every style</p></div>
+  <div class="masonry">
+
+    
+    <div class="m-card"><img src="images/headband.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">⭐ Top Pick</div><h3>Boho Crochet Headband</h3><p>Wide boho headband in sage green. Perfect for casual & festive looks.</p><span class="m-price">PKR 420</span><button class="add-cart-btn" onclick="addToCart('Boho Crochet Headband','PKR 420',420,'images/headband.webp')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/headband1.png" style="height:240px;"><div class="m-card-body"><h3>flower band</h3><p>Chunky crochet headband — keeps you  in style.</p><span class="m-price">PKR 400 per piece</span><button class="add-cart-btn" onclick="addToCart('Twisted Ear Warmer','PKR 400',400,'images/headband1.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/headband2.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">New</div><h3>Flower Crown Band</h3><p>Crocheted flower crown headband. Ideal for parties & photoshoots.</p><span class="m-price">PKR 350</span><button class="add-cart-btn" onclick="addToCart('Flower Crown Band','PKR 350',500,'images/headband2.png')">🛒 Add to Cart</button></div></div>
+
+    
+    <div class="m-card"><img src="images/head band 6.png" style="height:250px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Bridal ✨</div><h3>cute heart ethnic band</h3><p>Elegant crocheted headband  — perfect for summery looks.</p><span class="m-price">PKR 400</span><button class="add-cart-btn" onclick="addToCart('Pearl & Lace Headband','PKR 400',400,'images/headband.webp')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/headband 5.png" style="height:230px;"><div class="m-card-body"><div class="m-tag">Pastel 🌸</div><h3>Pastel Wide Headband</h3><p>Soft pastel wide crochet headband — gentle on hair and perfect for everyday wear.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Pastel Wide Headband','PKR 500',500,'images/headband1.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/head band 3.png" style="height:260px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Gift Idea 💝</div><h3>Daisy Chain Headband</h3><p>Cute daisy crochet headband — a sweet gift for girls of all ages. Custom colours available.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Daisy Chain Headband','PKR 500',500,'images/headband2.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/headband 4.png" style="height:240px;"><div class="m-card-body"><div class="m-tag">Kids 🌈</div><h3>Mini Kids Headband</h3><p>Tiny crochet headband sized for little ones — adorable with any outfit. Fully customisable!</p><span class="m-price">PKR 430</span><button class="add-cart-btn" onclick="addToCart('Mini Kids Headband','PKR 430',430,'images/headband.webp')">🛒 Add to Cart</button></div></div>
+
+  </div>
+</div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
 <!-- GLOVES -->
 <div id="page-gloves" class="page"><div class="section"><div class="sec-head"><h2>🧤 Gloves</h2><div class="divider"></div><p>Warmth meets handmade style</p></div><div class="masonry"><div class="m-card"><img src="images/gloves1.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">Winter Special</div><h3>Granny Square Gloves</h3><p>Fingerless gloves with granny square detail.</p><span class="m-price">PKR 750</span><button class="add-cart-btn" onclick="addToCart('Granny Square Gloves','PKR 750',750,'images/gloves1.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/gloves2.webp" style="height:240px;"><div class="m-card-body"><h3>Cozy Fingerless Gloves</h3><p>Warm plush crochet fingerless gloves.</p><span class="m-price">PKR 680</span><button class="add-cart-btn" onclick="addToCart('Cozy Fingerless Gloves','PKR 680',680,'images/gloves2.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
-<!-- BRACELETS -->
-<div id="page-bracelets" class="page"><div class="section"><div class="sec-head"><h2>📿 Bracelets</h2><div class="divider"></div><p>Stack them up!</p></div><div class="masonry"><div class="m-card"><img src="images/bracelet.webp" style="height:250px;"><div class="m-card-body"><div class="m-tag">⭐ Best Seller</div><h3>Daisy Chain Bracelet</h3><p>Dainty daisy crochet bracelet.</p><span class="m-price">PKR 250</span><button class="add-cart-btn" onclick="addToCart('Daisy Chain Bracelet','PKR 250',250,'images/bracelet.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
-
 <!-- KEYCHAINS -->
 <div id="page-keychains" class="page"><div class="section"><div class="sec-head"><h2>🔑 Keychains</h2><div class="divider"></div><p>Adorable crochet keychains!</p></div><div class="masonry"><div class="m-card"><img src="images/sunflower keychain.webp" style="height:260px;"><div class="m-card-body"><div class="m-tag">Trending 🌻</div><h3>Cute Sunflower Keychain</h3><p>Adorable crocheted bag charm.</p><span class="m-price">PKR 450</span><button class="add-cart-btn" onclick="addToCart('Cute Sunflower Keychain','PKR 450',450,'images/sunflower keychain.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/keychain.png" style="height:270px;"><div class="m-card-body"><div class="m-tag">Coquette</div><h3>Pink Crocheted Keychain</h3><p>Handmade crochet keychain.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Pink Bow Keychain','PKR 500',500,'images/keychain.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/keychain 1.png" style="height:230px;"><div class="m-card-body"><h3>Plushy Keychain</h3><p>Cute plushy keychains.</p><span class="m-price">PKR 440</span><button class="add-cart-btn" onclick="addToCart('Plushy Keychain','PKR 440',440,'images/keychain 1.png')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
-<!-- GAJRAY -->
-<div id="page-gajray" class="page"><div class="section"><div class="sec-head"><h2>🌺 Gajray</h2><div class="divider"></div><p>Handcrafted crochet gajray for brides and celebrations</p></div><div class="masonry"><div class="m-card"><img src="images/gajray.png" style="height:300px;"><div class="m-card-body"><div class="m-tag">🌹 Bridal</div><h3>Rose Gajra Set</h3><p>Set of 2 crochet rose gajra bun wraps.</p><span class="m-price">PKR 1,000</span><button class="add-cart-btn" onclick="addToCart('Rose Gajra Set','PKR 1000',1000,'images/gajray.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/gajray 1.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">New</div><h3>Pink Floral Gajra</h3><p>Handmade pink and white crochet hair accessory.</p><span class="m-price">PKR 1,200</span><button class="add-cart-btn" onclick="addToCart('Pink Floral Gajra','PKR 1200',1200,'images/gajray 1.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/gajray rose.png" style="height:260px;"><div class="m-card-body"><h3>Mehndi Gajra</h3><p>Colourful crochet gajra for mehndi.</p><span class="m-price">PKR 1000</span><button class="add-cart-btn" onclick="addToCart('Mehndi Gajra','PKR 1000',1000,'images/gajray rose.png')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
+<!-- ═══════════════════════════════════════ -->
+<!-- GAJRAY —           -->
+<!-- ═══════════════════════════════════════ -->
+<div id="page-gajray" class="page"><div class="section">
+  <div class="sec-head"><h2>🌺 Gajray</h2><div class="divider"></div><p>Handcrafted crochet gajray for brides and celebrations</p></div>
+  <div class="masonry">
+
+    <div class="m-card"><img src="images/gajray.png" style="height:300px;"><div class="m-card-body"><div class="m-tag">🌹 Bridal</div><h3>Rose Gajra Set</h3><p>Set of 2 crochet rose gajra bun wraps. Perfect for bridal and mehndi functions.</p><span class="m-price">PKR 1,000</span><button class="add-cart-btn" onclick="addToCart('Rose Gajra Set','PKR 1000',1000,'images/gajray.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/gajray 1.webp" style="height:270px;"><div class="m-card-body"><div class="m-tag">New</div><h3>Floral Gajra</h3><p>Handmade pink and white crochet hair accessory. Stays fresh all day — no wilting!</p><span class="m-price">PKR 1,400</span><button class="add-cart-btn" onclick="addToCart('Pink Floral Gajra','PKR 1400',1400,'images/gajray 1.webp')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/gajray rose.png" style="height:260px;"><div class="m-card-body"><h3>Mehndi Gajra</h3><p>Colourful crochet gajra for mehndi. Mix of vibrant shades to complement your outfit.</p><span class="m-price">PKR 1,000</span><button class="add-cart-btn" onclick="addToCart('Mehndi Gajra','PKR 1000',1000,'images/gajray rose.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/pink gajray.png" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Custom Order 🎀</div><h3>Customised Gajra Set</h3><p>Tell us your wedding colours and we will crochet a matching gajra set just for you. Any colour, any size!</p><span class="m-price">PKR 1,500</span><button class="add-cart-btn" onclick="addToCart('Customised Gajra Set','PKR 1500',1500,'images/pink gajray.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/sunflower gajray.png" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink"></div><h3>Customised Gajra Set</h3><p>just for you. Any colour, any size!</p><span class="m-price">PKR 1,200</span><button class="add-cart-btn" onclick="addToCart('Customised Gajra Set','PKR 1200',1200,'images/sunflower gajray.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/white gajray.png" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Custom Order 🎀</div><h3>Customised Gajra Set</h3><p> crochet a matching gajra set . Any colour, any size!</p><span class="m-price">PKR 1,000</span><button class="add-cart-btn" onclick="addToCart('Customised Gajra Set','PKR 1000',1000 ,'images/white gajray.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/pearls gajray.png" style="height:280px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Custom Order 🎀</div><h3>Customised Gajra Set</h3><p> Ethnic gajray of your choice.</p><span class="m-price">PKR 850</span><button class="add-cart-btn" onclick="addToCart('Customised Gajra Set','PKR 850',850,'images/pearls gajray.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/baby gajray rose.png" style="height:260px;"><div class="m-card-body"><div class="m-tag">Festive 🌟</div><h3>Gajra for babies</h3><p>red and white crocheted gajra — perfect for Eid, Shadi or any festive occasion. Long-lasting & lightweight.</p><span class="m-price">PKR 800</span><button class="add-cart-btn" onclick="addToCart('Eid Special Gajra','PKR 800',800,'images/gajray.png')">🛒 Add to Cart</button></div></div>
+
+  </div>
+</div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
 <!-- DEALS -->
 <div id="page-deals" class="page"><div class="section"><div class="sec-head"><h2>🏷️ Special Deals</h2><div class="divider"></div><p>Limited time offers!</p></div><div class="masonry"><div class="m-card"><img src="images/flower stud.png" style="height:240px;"><div class="m-card-body"><div class="m-tag m-tag-pink">25% OFF</div><h3>Flower Studs Bundle</h3><p>Both pink and hot pink flower studs.</p><span class="old">PKR 580</span><span class="m-price">PKR 450</span><button class="add-cart-btn" onclick="addToCart('Flower Studs Bundle Deal','PKR 450',450,'images/flower stud.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/earings set.png" style="height:260px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Buy 2 Get 1</div><h3>Bow Dangle Earrings</h3><p>Buy 2 pairs get 1 free!</p><span class="m-price">PKR 640 for 3</span><button class="add-cart-btn" onclick="addToCart('Bow Dangle Earrings Buy 2 Get 1','PKR 640',640,'images/earings set.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/heart studs.png" style="height:240px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Gift Bundle</div><h3>Heart Studs + Bow Combo</h3><p>Perfect gift set.</p><span class="old">PKR 580</span><span class="m-price">PKR 480</span><button class="add-cart-btn" onclick="addToCart('Heart Studs + Bow Combo','PKR 480',480,'images/heart studs.png')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/scrunchiess.webp" style="height:230px;"><div class="m-card-body"><div class="m-tag">30% OFF</div><h3>Scrunchie Bundle x5</h3><p>Set of 5 mixed pastels.</p><span class="old">PKR 1,000</span><span class="m-price">PKR 700</span><button class="add-cart-btn" onclick="addToCart('Scrunchie Bundle x5 Deal','PKR 700',700,'images/scrunchiess.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/bookmarkset.webp" style="height:220px;"><div class="m-card-body"><div class="m-tag">Buy 2 Get 1 FREE</div><h3>Bookmark Trio</h3><p>Buy 2 get 1 free!</p><span class="m-price">PKR 400 for 3</span><button class="add-cart-btn" onclick="addToCart('Bookmark Trio Deal','PKR 400',400,'images/bookmarkset.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
@@ -471,8 +510,65 @@ footer p{font-size:.85rem;opacity:.6;}
 <!-- BOOKMARKS -->
 <div id="page-bookmarks" class="page"><div class="section"><div class="sec-head"><h2>📖 Bookmarks</h2><div class="divider"></div><p>Making reading extra special</p></div><div class="masonry"><div class="m-card"><img src="images/bookmark.webp" style="height:280px;"><div class="m-card-body"><div class="m-tag">💝 Gift Idea</div><h3>Flower Bookmark</h3><p>Crochet flower bookmark with tassel.</p><span class="m-price">PKR 180 each | PKR 400 for 2</span><button class="add-cart-btn" onclick="addToCart('Flower Bookmark','PKR 180',180,'images/bookmark.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/bookmarkset.webp" style="height:260px;"><div class="m-card-body"><h3>Flower and Leaf Set</h3><p>Crocheted flower and leaf bookmark set.</p><span class="m-price">PKR 200 each | PKR 400 for 2</span><button class="add-cart-btn" onclick="addToCart('Flower and Leaf Bookmark Set','PKR 200',200,'images/bookmarkset.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
-<!-- BOOK COVERS -->
-<div id="page-bookcovers" class="page"><div class="section"><div class="sec-head"><h2>📚 Book Covers</h2><div class="divider"></div><p>Protect your favourite books in style</p></div><div class="masonry"><div class="m-card"><img src="images/bookcover1.webp" style="height:280px;"><div class="m-card-body"><div class="m-tag">Custom Orders</div><h3>Crochet Book Sleeve</h3><p>Multicolour handmade crochet book cover.</p><span class="m-price">PKR 700</span><button class="add-cart-btn" onclick="addToCart('Crochet Book Sleeve','PKR 700',700,'images/bookcover1.webp')">🛒 Add to Cart</button></div></div><div class="m-card"><img src="images/bookcover2.webp" style="height:250px;"><div class="m-card-body"><div class="m-tag">Vintage</div><h3>Vintage Book Cover</h3><p>Classic crocheted book cover, any size.</p><span class="m-price">PKR 750</span><button class="add-cart-btn" onclick="addToCart('Vintage Book Cover','PKR 750',750,'images/bookcover2.webp')">🛒 Add to Cart</button></div></div></div></div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
+<!-- ═══════════════════════════════════════ -->
+<!-- BOOK COVERS — 3 new cards added        -->
+<!-- ═══════════════════════════════════════ -->
+<div id="page-bookcovers" class="page"><div class="section">
+  <div class="sec-head"><h2>📚 Book Covers</h2><div class="divider"></div><p>Protect your favourite books in handmade style</p></div>
+  <div class="masonry">
+
+    
+    <div class="m-card"><img src="images/bookcover1.webp" style="height:350px;"><div class="m-card-body"><div class="m-tag">Custom Orders</div><h3>Crochet Book Sleeve</h3><p>Multicolour handmade crochet book cover. Fits most standard novels. Custom size on request.</p><span class="m-price">PKR 1150</span><button class="add-cart-btn" onclick="addToCart('Crochet Book Sleeve','PKR 1150',1150,'images/bookcover1.webp')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bookcover2.webp" style="height:350px;"><div class="m-card-body"><div class="m-tag">Vintage</div><h3>Vintage Book Cover</h3><p>Classic crocheted book cover in warm earthy tones. Available in any size — perfect for journals too.</p><span class="m-price">PKR 1550</span><button class="add-cart-btn" onclick="addToCart('Vintage Book Cover','PKR 1550',1550,'images/bookcover2.webp')">🛒 Add to Cart</button></div></div>
+
+    
+    <div class="m-card"><img src="images/quranpak cover.png" style="height:350px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Gift Idea 💝</div><h3>Quran Pak Cover(medium size)</h3><p>Soft pastel crochet cover for Quran Pak. Makes a beautiful gift .</p><span class="m-price">PKR 1630</span><button class="add-cart-btn" onclick="addToCart('Pastel Journal Cover','PKR 1630',1630,'images/bookcover1.webp')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/book cover 3.png" style="height:350px;"><div class="m-card-body"><div class="m-tag">Student Special 📖</div><h3>School Notebook Cover</h3><p>Durable crochet cover for school notebooks and registers. Keeps your books safe and stylish all year long.</p><span class="m-price">PKR 1400</span><button class="add-cart-btn" onclick="addToCart('School Notebook Cover','PKR 1400',1400,'images/bookcover2.webp')">🛒 Add to Cart</button></div></div>
+
+  </div>
+</div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- OTHERS —    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="page-others" class="page"><div class="section">
+  <div class="sec-head"><h2>🎁 Others</h2><div class="divider"></div><p>More handcrafted crochet goodies — bags, pouches, covers & more!</p></div>
+  <div class="masonry">
+
+    <div class="m-card"><img src="images/bottle cover bow.png" style="height:260px;"><div class="m-card-body"><div class="m-tag m-tag-pink">⭐ Best Seller</div><h3>Crochet Bottle Cover — Bow Style</h3><p>Keep your water bottle stylish with this handmade bow-design crochet cover. Fits standard bottles. Custom colours available.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Crochet Bottle Cover Bow','PKR 500',500,'images/bottle cover bow.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bottle cover pink.png" style="height:270px;"><div class="m-card-body"><div class="m-tag">Pink Edition 🌸</div><h3>Crochet Bottle Cover — Pink</h3><p>Soft pink crochet bottle cover — elegant and functional. Perfect gift for girls. Customisable size.</p><span class="m-price">PKR 800</span><button class="add-cart-btn" onclick="addToCart('Crochet Bottle Cover Pink','PKR 800',800,'images/bottle cover pink.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bottle cover white.png" style="height:240px;"><div class="m-card-body"><div class="m-tag">Classic ✨</div><h3>Crochet Bottle Cover — White</h3><p>Clean white crochet bottle cover. Simple, minimal and always in style. Fits most standard sized bottles.</p><span class="m-price">PKR 500</span><button class="add-cart-btn" onclick="addToCart('Crochet Bottle Cover White','PKR 500',500,'images/bottle cover white.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bottle cover set.png" style="height:250px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Bundle Deal 🎀</div><h3>Bottle Cover Set (3 pcs)</h3><p>Set of 3 crochet bottle covers in different colours. Great as a gift or to keep one for each bag!</p><span class="m-price">PKR 1,300</span><button class="add-cart-btn" onclick="addToCart('Bottle Cover Set x3','PKR 1300',1300,'images/bottle cover set.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/feeder cover watermelon.png" style="height:240px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Trending 🍉</div><h3>Feeder Cover — Watermelon</h3><p>Adorable watermelon-themed crochet feeder cover. Fun, colourful and a perfect baby shower gift!</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Feeder Cover Watermelon','PKR 600',600,'images/feeder cover watermelon.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/feeder cover pink.png" style="height:270px;"><div class="m-card-body"><div class="m-tag">Baby Gift 🍼</div><h3>Feeder Cover — Pink</h3><p>Sweet pink crochet feeder cover — soft, safe and washable. A thoughtful gift for new mothers.</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Feeder Cover Pink','PKR 600',600,'images/feeder cover pink.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/pods cover.png" style="height:250px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Tech Accessory 🎧</div><h3>Crochet AirPods / Pods Cover</h3><p>Handmade crochet cover for earphone cases. Protects your pods in style. Available in multiple colours.</p><span class="m-price">PKR 350</span><button class="add-cart-btn" onclick="addToCart('Crochet Pods Cover','PKR 350',350,'images/pods cover.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/hand bag black.png" style="height:400px;"><div class="m-card-body"><div class="m-tag">Everyday Carry 🖤</div><h3>Crochet Hand Bag — Black</h3><p>Chic black handmade crochet hand bag. Spacious enough for daily essentials — perfect for outings and markets.</p><span class="m-price">PKR 4800</span><button class="add-cart-btn" onclick="addToCart('Crochet Hand Bag Black','PKR 4800',4800,'images/hand bag black.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/hand bag bow.png" style="height:230px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Coquette 🎀</div><h3>Crochet Hand Bag — Bow Detail</h3><p>Adorable crochet bag with bow embellishment. Trendy, lightweight and hand-stitched with love.</p><span class="m-price">PKR 1,800</span><button class="add-cart-btn" onclick="addToCart('Crochet Hand Bag Bow','PKR 1800',1800,'images/hand bag bow.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bag beig.png" style="height:350px;"><div class="m-card-body"><div class="m-tag">Neutral Tones 🌿</div><h3>Crochet Bag — Beige</h3><p>Elegant beige crochet bag — versatile and matches any outfit. Sturdy handles and roomy interior.</p><span class="m-price">PKR 1,800</span><button class="add-cart-btn" onclick="addToCart('Crochet Bag Beige','PKR 1800',1800,'images/bag beig.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/bag maroon.png" style="height:220px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Rich Colour ❤️</div><h3>Crochet Bag — Maroon</h3><p>Deep maroon crochet bag — rich, bold and handcrafted to perfection. Great for winter styling.</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Crochet Bag Maroon','PKR 800',800,'images/bag maroon.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/misca scarf maroon.png" style="height:350px;"><div class="m-card-body"><div class="m-tag">Winter Wear 🧣</div><h3>Crochet Scarf(large) — Maroon</h3><p>Warm and cozy handmade crochet scarf in rich maroon. Soft yarn, long length — perfect for cold days.</p><span class="m-price">PKR 4500</span><button class="add-cart-btn" onclick="addToCart('Crochet Scarf Maroon','PKR 4500',4500,'images/misca scarf maroon.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/misca scarf men.png" style="height:300px;"><div class="m-card-body"><div class="m-tag">Men's Edition 🧔</div><h3>Crochet Scarf(large) — Men's Style</h3><p>Classic crocheted scarf in neutral tones — designed for men. Thick, warm and great for gifting.</p><span class="m-price">PKR 4500</span><button class="add-cart-btn" onclick="addToCart('Crochet Scarf Mens','PKR 4500',4500,'images/misca scarf men.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/baby slippers.png" style="height:300px;"><div class="m-card-body"><div class="m-tag m-tag-pink">Baby 🍼</div><h3>Baby Slippers</h3><p>Soft crocheted baby slippers — gentle on tiny feet. Perfect newborn gift, available in multiple colours.</p><span class="m-price">PKR 600</span><button class="add-cart-btn" onclick="addToCart('Crochet Baby Slippers','PKR 600',600,'images/baby slippers.png')">🛒 Add to Cart</button></div></div>
+
+    <div class="m-card"><img src="images/baby slippers white.png" style="height:230px;"><div class="m-card-body"><div class="m-tag">Pure White 🤍</div><h3>Baby Slippers — White</h3><p>Classic white crocheted baby slippers. Soft and snug for newborns — a timeless baby shower gift.</p><span class="m-price">PKR 800</span><button class="add-cart-btn" onclick="addToCart('Crochet Baby Slippers White','PKR 600',600,'images/baby slippers white.png')">🛒 Add to Cart</button></div></div>
+
+  </div>
+</div><footer><div class="f-logo">Crochet Craft 🧶</div><p>© 2026 Crochet Craft</p></footer></div>
 
 <!-- CHECKOUT -->
 <div id="page-checkout" class="page">
@@ -494,7 +590,7 @@ footer p{font-size:.85rem;opacity:.6;}
         <hr class="order-divider">
         <div class="order-total-row"><span>Total Amount</span><span id="orderGrandTotal">PKR 0</span></div>
         <div style="margin-top:1rem;background:var(--sage-pale);border-radius:12px;padding:1rem;font-size:.85rem;color:var(--text-soft);line-height:1.7;">
-          📦 <strong>Delivery:</strong> 4–5 business days<br>
+          📦 <strong>Delivery:</strong> 10-15 business days<br>
           🚚 <strong>Shipping:</strong> PKR 250 (Free above PKR 2000)<br>
           🔄 <strong>Returns:</strong> Within 3 days of delivery
         </div>
@@ -516,16 +612,15 @@ footer p{font-size:.85rem;opacity:.6;}
               <input type="radio" name="pay"> <label>📱 JazzCash</label>
             </div>
           </div>
-          <!-- ── UPDATED: QR + WhatsApp instead of account number ── -->
           <div class="pay-details-box" id="box-easypaisa">
             <div class="pay-details-header">📱 Payment Details</div>
             <div class="pay-details-body">
               <div class="qr-pay-wrap">
-                <div class="qr-label">Scan QR to Pay using jazzcash </div>
+                <div class="qr-label">Scan QR to Pay using JazzCash</div>
                 <img src="images/QR code.jpeg" alt="JazzCash QR Code" class="qr-img" id="jazzcashQR">
                 <a href="https://wa.me/923235963246" target="_blank" class="wa-pay-btn">💬 Pay &amp; Send screenshot on WhatsApp</a>
               </div>
-              <div class="pay-notice">💡 Scan the QR above using  cash <strong>and</strong> tap WhatsApp to send the <strong>payment screenshot</strong>  .<br>Share your <strong>Order ID</strong> for verification. Advance payment only.</div>
+              <div class="pay-notice">💡 Scan the QR above using JazzCash <strong>and</strong> tap WhatsApp to send the <strong>payment screenshot</strong>.<br>Share your <strong>Order ID</strong> for verification. Advance payment only.</div>
             </div>
           </div>
         </div>
@@ -591,7 +686,6 @@ const API_URL = 'https://crochet-webpage-production.up.railway.app/api';
 let cart = [];
 let selectedPayment = '';
 
-// ── Embed QR as base64 so it always works offline ──
 (function(){
   const img = document.getElementById('jazzcashQR');
   if(img) img.src = 'images/QR code.jpeg';
@@ -739,7 +833,7 @@ function showSuccess(orderId,payMethod,grand){
   document.getElementById('orderSuccess').style.display='block';
   document.getElementById('displayOrderId').textContent=orderId;
   const reminders={
-    easypaisa:`📱 <strong>Payment Reminder:</strong> Please send <strong>PKR ${grand.toLocaleString()}</strong> via JazzCash  (scan QR or message us on <a href='https://wa.me/923235963246' target='_blank' style='color:var(--sage);font-weight:700;'>WhatsApp</a>).<br>Share your Order ID <strong>${orderId}</strong> for verification.`
+    easypaisa:`📱 <strong>Payment Reminder:</strong> Please send <strong>PKR ${grand.toLocaleString()}</strong> via JazzCash (scan QR or message us on <a href='https://wa.me/923235963246' target='_blank' style='color:var(--sage);font-weight:700;'>WhatsApp</a>).<br>Share your Order ID <strong>${orderId}</strong> for verification.`
   };
   document.getElementById('successPayReminder').innerHTML=reminders[payMethod]||'';
   window.scrollTo(0,0);cart=[];updateCartUI();
